@@ -9,6 +9,7 @@ static struct udp_pcb* upcb = NULL;
 static void udp_receive_callback(void *arg, struct udp_pcb *pcb, struct pbuf *p,
 	    const ip_addr_t *addr, u16_t port)
 {
+	HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_7);
 	// в этой функции обязательно должны очистить p, иначе память потечёт
 	pbuf_free(p);
 }
